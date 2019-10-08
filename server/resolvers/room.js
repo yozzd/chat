@@ -8,10 +8,12 @@ const pubsub = new PubSub();
 
 const Query = {
   async showRoom(_, { id }) {
-    const room = await Room.findById(id).populate({
-      path: 'users',
-      options: { sort: 'name' },
-    });
+    const room = await Room.findById(id)
+      .populate({
+        path: 'users',
+        options: { sort: 'name' },
+      })
+      .populate({ path: 'messages', populate: { path: 'user' } });
     return room;
   },
 };

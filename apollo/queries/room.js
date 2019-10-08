@@ -9,6 +9,15 @@ export const SHOW_ROOM = gql`
         id
         name
       }
+      messages {
+        id
+        text
+        user {
+          id
+          name
+        }
+        createdAt
+      }
     }
   }
 `;

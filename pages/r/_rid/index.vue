@@ -12,7 +12,7 @@ import {
   SHOW_ROOM,
   CREATE_USER_SUBSCRIPTION,
 } from '../../../apollo/queries/room';
-// import { CREATE_MESSAGE_SUBSCRIPTION } from '../../../apollo/queries/message';
+import { CREATE_MESSAGE_SUBSCRIPTION } from '../../../apollo/queries/message';
 import Chat from '../../../components/chat/index.vue';
 import Users from '../../../components/users/index.vue';
 
@@ -35,18 +35,18 @@ export default {
         };
       },
       subscribeToMore: [
-        // {
-        //   document: CREATE_MESSAGE_SUBSCRIPTION,
-        //   updateQuery: (previousData, { subscriptionData }) => ({
-        //     showRoom: {
-        //       ...previousData.showRoom,
-        //       messages: [
-        //         ...previousData.showRoom.messages,
-        //         subscriptionData.data.createdMessage,
-        //       ],
-        //     },
-        //   }),
-        // },
+        {
+          document: CREATE_MESSAGE_SUBSCRIPTION,
+          updateQuery: (previousData, { subscriptionData }) => ({
+            showRoom: {
+              ...previousData.showRoom,
+              messages: [
+                ...previousData.showRoom.messages,
+                subscriptionData.data.createdMessage,
+              ],
+            },
+          }),
+        },
         {
           document: CREATE_USER_SUBSCRIPTION,
           updateQuery: (previousData, { subscriptionData }) => ({

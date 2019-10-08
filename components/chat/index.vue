@@ -4,7 +4,7 @@
       <div>#{{ data.name }}</div>
     </Row>
     <Row class="chat-list" ref="list">
-      <!--<div class="display-table">
+      <div class="display-table">
         <div v-for="(m, mid) in data.messages" :key="mid" class="display-row">
           <div class="display-column" :class="{ me: m.user.id === $route.query.u}">
             &#60;{{ renderDate(m.createdAt) }}&#62;
@@ -16,7 +16,7 @@
             {{ m.text }}
           </div>
         </div>
-      </div>-->
+      </div>
     </Row>
     <Row class="input">
       <Form
@@ -44,7 +44,7 @@
 <script>
 import moment from 'moment';
 import errorHandler from '../../apollo/config/errorHandler';
-// import { CREATE_MESSAGE } from '../../apollo/queries/message';
+import { CREATE_MESSAGE } from '../../apollo/queries/message';
 
 export default {
   props: {

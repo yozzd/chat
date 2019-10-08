@@ -1,0 +1,10 @@
+.display-table {
+  display: table;
+}
+.display-row {
+  display: table-row;
+}
+.display-column {
+  display: table-cell;
+  padding: 0 5px;
+}
