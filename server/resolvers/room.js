@@ -1,13 +1,18 @@
+const { PubSub } = require('apollo-server');
 const Room = require('../models/room.js');
 const User = require('../models/user.js');
 
+const CREATED_USER = 'CREATED_USER';
+
+const pubsub = new PubSub();
+
 const Query = {
   async showRoom(_, { id }) {
-    return {
-      id,
-      name: 'tes',
-      user: 'tes',
-    };
+    const room = await Room.findById(id).populate({
+      path: 'users',
+      options: { sort: 'name' },
+    });
+    return room;
   },
 };
 
@@ -41,7 +46,14 @@ const Mutation = {
   },
 };
 
+const Subscription = {
+  createdUser: {
+    subscribe: () => pubsub.asyncIterator([CREATED_USER]),
+  },
+};
+
 module.exports = {
   Query,
   Mutation,
+  Subscription,
 };

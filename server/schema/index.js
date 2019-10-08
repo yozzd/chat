@@ -5,6 +5,12 @@ const typeDefs = gql`
     id: String!
     name: String!
     user: String!
+    users: [User]
+  }
+
+  type User {
+    id: String!
+    name: String!
   }
 
   type Query {
@@ -15,6 +21,10 @@ const typeDefs = gql`
     confirmRoom(name: String!): Room
     createRoom(name: String!, user: String!): Room
     joinRoom(id: String!, user: String!): Room
+  }
+
+  type Subscription {
+    createdUser: User
   }
 `;
 

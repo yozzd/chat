@@ -5,6 +5,7 @@ const timestamps = require('mongoose-timestamp');
 const RoomSchema = new Schema({
   _id: { type: String, default: shortid.generate },
   name: String,
+  users: [{ type: String, ref: 'User' }],
 });
 
 RoomSchema.plugin(timestamps);
