@@ -2,7 +2,8 @@ const Query = {
   async showRoom(_, { id }) {
     return {
       id,
-      name: 'tes'
+      name: 'tes',
+      user: 'tes',
     };
   },
 };
@@ -12,6 +13,7 @@ const Mutation = {
     return {
       id: 1,
       name,
+      user,
     };
   },
 };
