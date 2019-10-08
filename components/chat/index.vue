@@ -13,7 +13,7 @@
             &#60;{{ m.user.name }}&#62;
           </div>
           <div class="display-column" :class="{ me: m.user.id === $route.query.u}">
-            {{ m.text }}
+            <i>{{ m.text }}</i>
           </div>
         </div>
       </div>
