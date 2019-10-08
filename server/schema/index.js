@@ -12,7 +12,9 @@ const typeDefs = gql`
   }
 
   type Mutation {
+    confirmRoom(name: String!): Room
     createRoom(name: String!, user: String!): Room
+    joinRoom(id: String!, user: String!): Room
   }
 `;
 

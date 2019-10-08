@@ -1,24 +1,13 @@
 <template>
   <div>
-    <Button @click="handleSubmit">Submit</Button>
+    <Landing />
   </div>
 </template>
 
 <script>
-import { CREATE_ROOM } from '../apollo/queries/room';
+import Landing from '../components/landing/index.vue';
 
 export default {
-  methods: {
-    async handleSubmit() {
-      const { data } = await this.$apollo.mutate({
-        mutation: CREATE_ROOM,
-        variables: {
-          name: 'segfault',
-          user: 'yozz',
-        },
-      });
-      console.log(data);
-    },
-  },
+  components: { Landing },
 };
 </script>
