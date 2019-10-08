@@ -2,6 +2,7 @@ const express = require('express');
 const { Nuxt, Builder } = require('nuxt');
 const { createServer } = require('http');
 const { ApolloServer } = require('apollo-server-express');
+const { mongo } = require('./dbm');
 
 const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
@@ -12,6 +13,8 @@ const config = require('../nuxt.config.js');
 config.dev = process.env.NODE_ENV !== 'production';
 
 async function start() {
+  await mongo.connect();
+
   const nuxt = new Nuxt(config);
 
   const { host, port } = nuxt.options.server;

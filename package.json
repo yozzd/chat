@@ -24,7 +24,10 @@
     "express": "^4.17.1",
     "graphql-tag": "^2.10.1",
     "iview": "^3.5.1",
-    "nuxt": "^2.9.2"
+    "mongoose": "^5.7.3",
+    "mongoose-timestamp": "^0.6.0",
+    "nuxt": "^2.9.2",
+    "shortid": "^2.2.15"
   },
   "devDependencies": {
     "nodemon": "^1.19.3",

@@ -1,3 +1,5 @@
+const Room = require('../models/room.js');
+
 const Query = {
   async showRoom(_, { id }) {
     return {
@@ -10,11 +12,11 @@ const Query = {
 
 const Mutation = {
   async createRoom(_, { name, user }) {
-    return {
-      id: 1,
-      name,
-      user,
-    };
+    const newRoom = new Room({ name });
+    const room = await newRoom.save();
+    room.user = user;
+
+    return room
   },
 };
 
