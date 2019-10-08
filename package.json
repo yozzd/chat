@@ -25,6 +25,7 @@
     "express": "^4.17.1",
     "graphql-tag": "^2.10.1",
     "iview": "^3.5.1",
+    "moment": "^2.24.0",
     "mongoose": "^5.7.3",
     "mongoose-timestamp": "^0.6.0",
     "nuxt": "^2.9.2",

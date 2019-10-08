@@ -148,8 +148,7 @@ export default {
               },
             });
             if (data.createRoom) {
-              console.log(data);
-              // this.$router.push({ path: `/r/${data.createRoom.id}/`, query: { u: data.createRoom.user } });
+              this.$router.push({ path: `/r/${data.createRoom.id}/`, query: { u: data.createRoom.user } });
             }
             return true;
           } catch (err) {
@@ -174,8 +173,7 @@ export default {
               },
             });
             if (data.joinRoom) {
-              console.log(data);
-              // this.$router.push({ path: `/r/${data.joinRoom.id}/`, query: { u: data.joinRoom.user } });
+              this.$router.push({ path: `/r/${data.joinRoom.id}/`, query: { u: data.joinRoom.user } });
             }
             return true;
           } catch (err) {

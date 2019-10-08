@@ -1,5 +1,18 @@
 import gql from 'graphql-tag';
 
+export const SHOW_ROOM = gql`
+  query showRoom($id: String!) {
+    showRoom(id: $id) {
+      id
+      name
+      users {
+        id
+        name
+      }
+    }
+  }
+`;
+
 export const CONFIRM_ROOM = gql`
   mutation confirmRoom($name: String!) {
     confirmRoom(name: $name) {
@@ -25,6 +38,15 @@ export const JOIN_ROOM = gql`
       id
       name
       user
+    }
+  }
+`;
+
+export const CREATE_USER_SUBSCRIPTION = gql`
+  subscription createdUser {
+    createdUser {
+      id
+      name
     }
   }
 `;
