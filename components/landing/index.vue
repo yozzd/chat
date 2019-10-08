@@ -47,7 +47,7 @@
         </div>
         <FormItem>
           <Button type="primary" html-type="submit">
-            {{ joinRoom ? 'JOIN?' : createRoom ? 'CREATE' : 'CONFIRM' }}
+            {{ joinRoom ? 'JOIN' : createRoom ? 'CREATE' : checkingStatus ? 'CHECKING...' : 'CONFIRM' }}
           </Button>
         </FormItem>
       </Form>
@@ -66,6 +66,7 @@ export default {
       createRoom: false,
       joinRoom: false,
       cStatus: false,
+      checkingStatus: false,
       cText: '',
       cType: '',
       roomId: '',
@@ -106,6 +107,7 @@ export default {
       this.$refs[form].validate(async (valid) => {
         if (valid) {
           try {
+            this.checkingStatus = true;
             const { data } = await this.$apollo.mutate({
               mutation: CONFIRM_ROOM,
               variables: {
@@ -119,12 +121,14 @@ export default {
               this.cStatus = true;
               this.cText = 'Room confirmed, Join?';
               this.cType = 'success';
+              this.checkingStatus = false;
             } else {
               this.joinRoom = false;
               this.createRoom = true;
               this.cStatus = true;
               this.cText = 'Room doesn\'t exist, Create?';
               this.cType = 'error';
+              this.checkingStatus = false;
             }
             return true;
           } catch (err) {
