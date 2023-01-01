@@ -29,13 +29,13 @@
     "moment": "^2.29.4",
     "mongoose": "^5.7.5",
     "mongoose-timestamp": "^0.6.0",
-    "nuxt": "^2.9.2",
+    "nuxt": "^3.0.0",
     "shortid": "^2.2.15"
   },
   "devDependencies": {
     "nodemon": "^1.19.3",
     "@nuxtjs/eslint-config": "^1.1.2",
-    "@nuxtjs/eslint-module": "^1.1.0",
+    "@nuxtjs/eslint-module": "^1.2.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.5.1",
     "eslint-plugin-nuxt": ">=0.4.3"
